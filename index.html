@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Jogos Lotofácil</title>
+<style>
+    body {
+        min-height: 500%;
+        font-family: Arial, sans-serif;
+        background-image: url('../Loto_Fácil/imagem/img.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho correto da sua imagem */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center; /* Centraliza a imagem */
+    }
+    .container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+    .numbers {
+        margin-top: 20px;
+    }
+    .number {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Gerador de Jogos Lotofácil</h1>
+    <button class="button" onclick="gerarJogo()">Gerar Jogo</button>
+    <button class="button" onclick="apagarJogo()">Apagar Jogo</button>
+    <div class="numbers" id="generatedNumbers"></div>
+</div>
+<script>
+    var jogoGerado = false;
+    var resultados = [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        // Insira os resultados dos últimos 25 jogos aqui
+    ];
+
+    function gerarJogo() {
+        if (!jogoGerado) {
+            var numbers = calcularProbabilidades();
+            displayNumbers(numbers);
+            jogoGerado = true;
+        }
+    }
+
+    function displayNumbers(numbers) {
+        var numbersContainer = document.getElementById('generatedNumbers');
+        numbersContainer.innerHTML = '';
+        numbers.forEach(function(number) {
+            var div = document.createElement('div');
+            div.className = 'number';
+            div.textContent = number;
+            numbersContainer.appendChild(div);
+        });
+    }
+
+    function apagarJogo() {
+        document.getElementById('generatedNumbers').innerHTML = '';
+        jogoGerado = false;
+    }
+
+    function calcularProbabilidades() {
+        var frequencia = {};
+        resultados.forEach(function(resultado) {
+            resultado.forEach(function(numero) {
+                frequencia[numero] = frequencia[numero] ? frequencia[numero] + 1 : 1;
+            });
+        });
+
+        var sortedNumbers = Object.keys(frequencia).sort(function(a, b) {
+            return frequencia[b] - frequencia[a];
+        });
+
+        return sortedNumbers.slice(0, 15);
+    }
+</script>
+<footer style="position: fixed; bottom: 10px; width: 100%; text-align: center;">
+    <h6><p>Desenvolvido por Desenvolvedor em Aplicação Web</p></h6>
+    <h4><p> Marcos Duarte (62) 98469-6547 </p></h4>
+
+    <h6>Todos os Direitos Reservados ℗ Copyright 2024.</h6>
+</footer>
+</body>
+</html>
