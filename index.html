@@ -81,7 +81,12 @@
         // Here you can replace this with your data source, for example, fetch('https://api.loterias.com/last25')
         const newResults = [];
         // For this example, I'll just add a new result to the array
-        for (let i = 1; i <= 
+        for (let i = 1; i <= 1; i++) {
+            const currentResult = [];
+            for (let j = 1; j <= 15; j++) {
+                currentResult.push(Math.floor(Math.random() * 25) + 1);
+            }
+            new
     
     function gerarJogo() {
         if (!jogoGerado) {
