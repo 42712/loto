@@ -66,7 +66,7 @@
     var jogoGerado = false;
     var resultados = [];
      
-    // Generate 25 dummy results for demonstration purposes
+   // Generate 25 dummy results for demonstration purposes
     for (let i = 1; i <= 25; i++) {
         const currentResult = [];
         for (let j = 1; j <= 15; j++) {
@@ -75,7 +75,6 @@
         resultados.push(currentResult);
     }
 
-    // For the sake of this example, I'll use a static function to simulate updating the results
     function updateResults() {
         // Assuming we get new results from an API or other data source
         // Here you can replace this with your data source, for example, fetch('https://api.loterias.com/last25')
@@ -84,9 +83,7 @@
         for (let i = 1; i <= 1; i++) {
             const currentResult = [];
             for (let j = 1; j <= 15; j++) {
-                currentResult.push(Math.floor(Math.random() * 25) + 1);
-            }
-            new
+               currentResult.push(Math.floor(Math.random() * 2
     
     function gerarJogo() {
         if (!jogoGerado) {
