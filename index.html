@@ -64,25 +64,25 @@
 </div>
 <script>
     var jogoGerado = false;
-    var resultados = [
-        [1,	2,	1,	1,	1,	2,	1,	2,	1,	1,	1,	2,	2,	1,	1,	3,	1,	4,	2,	2,	2,	1,	2,	1, 1],
-        [2,	3,	5,	4,	2,	3,	2,	3,	3,	3,	2,	3,	3,	3,	2,	4,	2,	5,	3,	3,	4,	2,	3,	2, 3],
-        [3,	6,	7,	5,	3,	4,	4,	4,	5,	4,	3,	6,	5,	4,	4,	5,	3,	6,	4,	4,	5,	4,	7,	3, 4],
-        [4,	7,	8,	7,	4,	5,	5,	5,	8,	5,	4,	8,	8,	5,	7,	7,	4,	7,	6,	8,	7,	8,	8,	4, 8],
-        [6,	8,	9,	8,	7,	11,	6,	7,	9,	7,	8,	9,	9,	6,	8,	8,	5,	8,	9,	9,	8,	9,	9,	5, 11],
-        [7,	9,	12,	9,	8,	12,	7,	8,	10,	8,	9,	12,	10,	7,	9,	10,	7,	9,	10,	10,	12,	10,	10,	8, 13],
-        [9,	11,	13,	11,	9,	16,	8,	9,	11,	9,	10,	13,	12,	12,	10,	11,	8,	14,	11,	11,	13,	14,	11,	9, 15],
-        [10, 12, 14, 13, 10, 17, 10, 10, 12, 10, 12, 16, 15, 13, 11, 16, 9,	18,	12,	14,	14,	15,	12,	15, 16],
-        [11, 13,17,	14,	11,	18,	11,	11,	13,	11,	13,	17,	16,	15,	14,	18,	12,	19,	15,	15,	16,	18,	14,	16, 18],
-        [13, 14, 18, 17, 12, 20, 13, 12, 15, 17, 14, 18, 17, 18, 15, 19, 13, 20, 17, 18, 17, 19,15,	17, 19],
-        [15, 16, 20, 18, 15, 21, 18, 14, 16, 19, 15, 19, 18, 20, 17, 20, 14, 21, 18, 19, 18, 20, 17, 19, 20],
-        [19, 18, 21, 20, 16, 22, 19, 16, 18, 21, 17, 20, 20, 21, 18, 21, 15, 22, 20, 20, 19, 21, 20, 21, 21],
-        [23, 19, 23, 21, 20, 23, 22, 18, 21, 22, 18, 21, 21, 22, 21, 23, 17, 23, 21, 21, 21, 22, 21, 22, 22],
-        [24, 22, 24, 22, 22, 24, 24, 20, 22, 24, 24, 22, 23, 23, 24, 24, 19, 24, 22, 23, 22, 23, 22, 23, 23],
-        [25, 25, 25, 25, 23, 25, 25, 21, 25, 25, 25, 24, 25, 25, 25, 25, 20, 25, 25, 24, 23, 24, 23, 25, 24],
-        // Insira os resultados dos últimos 25 jogos aqui    //ULTIMO CONCURSO: 3057
-    ];
+    var resultados = [];
+     
+    // Generate 25 dummy results for demonstration purposes
+    for (let i = 1; i <= 25; i++) {
+        const currentResult = [];
+        for (let j = 1; j <= 15; j++) {
+            currentResult.push(j);
+        }
+        resultados.push(currentResult);
+    }
 
+    // For the sake of this example, I'll use a static function to simulate updating the results
+    function updateResults() {
+        // Assuming we get new results from an API or other data source
+        // Here you can replace this with your data source, for example, fetch('https://api.loterias.com/last25')
+        const newResults = [];
+        // For this example, I'll just add a new result to the array
+        for (let i = 1; i <= 
+    
     function gerarJogo() {
         if (!jogoGerado) {
             var numbers = calcularProbabilidades();
