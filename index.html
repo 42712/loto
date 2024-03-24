@@ -84,7 +84,7 @@
             var numbers = gerarNumerosOtimo();
             displayNumbers(numbers);
             jogoGerado = true;
-            document.querySelector('.button:nth-of-type(1)').setAttribute('disabled', 'true');
+            
         }
     }
 
@@ -127,17 +127,7 @@
         return array;
     }
 
-    function gerarNumerosOtimo() {
-        var numeros = [];
-        for (var i = 1; i <= 25; i++) {
-            numeros.push(i);
-        }
-        // Embaralhar os números
-        numeros = sortNumbersRandomly(numeros);
-        
-        // Retornar os primeiros 15 números (ou o número desejado)
-        return numeros.slice(0, 15);
-    }
+    
 </script>
 <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center;">
     <h6><p>Desenvolvido por Desenvolvedor em Aplicação Web</p></h6>
