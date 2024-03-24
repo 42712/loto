@@ -88,6 +88,14 @@
         }
     }
 
+    function gerarJogoML() {
+        if (!jogoGerado) {
+            var numbers = gerarNumerosComML();
+            displayNumbers(numbers);
+            jogoGerado = true;
+        }
+    }
+
     function displayNumbers(numbers) {
         var numbersContainer = document.getElementById('generatedNumbers');
         numbersContainer.innerHTML = '';
@@ -119,12 +127,20 @@
         return sortedNumbers.slice(0, 15);
     }
 
-    function sortNumbersRandomly(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+    function gerarNumerosComML() {
+        var numerosPossiveis = Array.from({length: 25}, (_, i) => i + 1);
+
+        // Chamada AJAX para enviar os números para o backend Python
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/gerar_jogo_ml", true); // Defina a rota correta do seu servidor Python
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                displayNumbers(response.predicted_numbers);
+            }
+        };
+        xhr.send(JSON.stringify({numbers: numerosPossiveis}));
     }
     
 </script>
