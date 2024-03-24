@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -81,10 +82,9 @@
     ]; 
     function gerarJogo() {
         if (!jogoGerado) {
-            var numbers = gerarNumerosOtimo();
+            var numbers = calcularProbabilidades();
             displayNumbers(numbers);
             jogoGerado = true;
-            document.querySelector('.button:nth-of-type(1)').setAttribute('disabled', 'true');
         }
     }
 
@@ -102,8 +102,6 @@
     function apagarJogo() {
         document.getElementById('generatedNumbers').innerHTML = '';
         jogoGerado = false;
-        document.querySelector('.button:nth-of-type(1)').removeAttribute('disabled');
-}
     }
 
     function calcularProbabilidades() {
@@ -128,7 +126,6 @@
         }
         return array;
     }
-
     
 </script>
 <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center;">
