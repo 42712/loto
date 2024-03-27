@@ -149,6 +149,37 @@
     }
     
 </script>
+    <script>
+function atualizarResultados() {
+    // Aqui você deve implementar a lógica para atualizar os resultados dos últimos 15 jogos.
+    // Por exemplo, você pode fazer uma chamada AJAX para um backend que forneça os resultados mais recentes dos jogos.
+    // Depois de receber os resultados, atualize a variável 'resultados'.
+    // Certifique-se de manter apenas os resultados dos últimos 15 jogos.
+
+    // Exemplo fictício:
+    // resultados.shift(); // Remove o jogo mais antigo
+    // resultados.push([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]); // Adiciona um novo jogo fictício
+}
+
+function agendarAtualizacao() {
+    var agora = new Date();
+    var horarioAtualizacao = new Date(agora.getFullYear(), agora.getMonth(), agora.getDate(), 20, 20, 0);
+    var diferenca = horarioAtualizacao - agora;
+
+    if (diferenca < 0) {
+        horarioAtualizacao.setDate(horarioAtualizacao.getDate() + 1);
+        diferenca = horarioAtualizacao - agora;
+    }
+
+    setTimeout(function() {
+        atualizarResultados();
+        setInterval(atualizarResultados, 24 * 60 * 60 * 1000); // Atualiza a cada 24 horas
+    }, diferenca);
+}
+
+agendarAtualizacao(); // Inicia o agendamento
+</script>
+
 <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center;">
     <h6><p>Desenvolvido por Desenvolvedor em Aplicação Web</p></h6>
     <h4><p> Marcos Duarte (62) 98469-6547 </p></h4>
